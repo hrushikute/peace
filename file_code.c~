@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include <functl.h>
+#include <unistd.h>
+	
+
+int main (int argc, char *argv [])
+{
+	
+	int fd,result;
+	char buff[30];
+		
+	fd=open ("My_file.txt",O_CREAT | O_WRONLY,0755)
+
+	if  (fd == -1)
+	{
+		printf ("Unable to Create a file \n");
+		exit(1);
+	}
+
+	write (fd,"First Line in the file.\n",25)
+	close(fd);
+
+
+	/*Read the data from file*/
+
+	
+	fd=open ("My_file.txt",O_RDONLY)
+
+	if  (fd == -1)
+	{
+		printf ("Unable to open a file for reading. \n");
+		exit(1);
+	}
+
+	result=read(fd,*buff,26);
+	
+	buff[26]="\0";
+
+	printf ("Data in file:\n%s\n",buff);
+
+	close(fd);	
+
+	
+	
+}
