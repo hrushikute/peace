@@ -15,6 +15,5 @@ int main (int argc,char * argv[])
 
 	printf(" Child Process ID: %d \n",process_id_child);
 
-	while(1);
 return 0;
 }
