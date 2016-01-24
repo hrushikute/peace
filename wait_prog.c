@@ -19,17 +19,17 @@ int main(int argc,char *argv[])
 	{
 	
 		printf("CUrrent process_id : %d",getpid());
-		ret_exec = execlp("uptime","uptime",NULL);
+		ret_exec = execlp("top","top",NULL);
 
 		
         	if(ret_exec == -1)
         	{
-                	perror("execl error:");
+                	perror("execlp error:");
 			exit(EXIT_FAILURE);
         	}
 	}
 
-	proc_id=waitpid(0,&status,WNOHANG);
+	proc_id=waitpid(0,&status,0);
 
 	if(proc_id == -1)
 	{
@@ -44,7 +44,7 @@ int main(int argc,char *argv[])
 		printf("Chid process Pid :%d\n",proc_id);
 
 		if (WIFEXITED(status))
-			printf(	"Normal termination of process with status %d \n\n",WIFEXITED(status));
+			printf(	"Normal termination of process with status %d \n\n",WEXITSTATUS(status));
 
 		if(WIFSIGNALED(status))
 			printf("Process was killed bu signal %d : %s \n\n\n",WTERMSIG(status),WCOREDUMP(status)?"dump core":"");
