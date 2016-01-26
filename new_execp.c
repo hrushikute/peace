@@ -27,7 +27,10 @@ int main (int argv,char *argc[])
 		 status=execlp("ls","ls","-lrt",NULL);
 		
 		if (status == -1)
+		{
 			perror("execlp error:");
+			exit (EXIT_FAILURE);
+		}
 	}
 
 	else
