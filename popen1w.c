@@ -26,7 +26,7 @@ sprintf(buffer,"Coffee was getting cold while she was waiting for him to miss he
 //open the pipe in write  mode ie wite the ouput to command od -c
 
 
-write_fp=popen("od -c","w");
+write_fp=popen("wc","w");
 
 	if(write_fp!=NULL)
 	{

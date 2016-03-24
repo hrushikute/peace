@@ -22,7 +22,7 @@ int main (int argv,char *argc[])
 	
 	if (!proc_id_cnt1)
 	{
-		 printf("\n\nI am a child process : %d", getpid() );
+		 printf("am a child process : %d\n", getpid() );
 	
 		 status=execlp("ls","ls","-lrt",NULL);
 		

@@ -5,7 +5,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include </usr/include/linux/fs.h>
+#include <linux/fs.h>
+#include<signal.h>
+#include<limits.h>
+
 #undef NR_OPEN
 #define NR_OPEN 256
 
@@ -47,13 +50,17 @@ int main(int argc , char *argv[])
 
 	/*Step 6:My daemon thing !!!*/
 
-	ret=system("ls -lrt");
-//	if(WIFSIGNALED(ret)&&(WTERMSIF (ret)==SIGINT || WTERMSIG(ret)==SIGQUIT))
-//	{
-//		printf("system error !");
-//		perror("system");
-//	}
-	sleep (5);
+/*ret=system("ls -lrt");
+if(WIFSIGNALED(ret)&&(WTERMSIG (ret)==SIGINT || WTERMSIG(ret)==SIGQUIT))
+{
+printf("system error !");
+perror("system");
+}*/
+	while(1)
+	{
+	printf("Pid of the process :%d\n\n",getpid());
+	}	
+sleep (5);
 
 
 
