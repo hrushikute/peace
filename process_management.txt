@@ -1,0 +1,12 @@
+hrushi@hrushi-Studio-1450:/proc/sys/kernel$ cat pid_max 
+32768
+
+the Maximum process id that can be allocated to the process os pid_max-1
+
+pid_max is configured in /proc/sys/kernel/pid_max file.
+
+So in this case it will be 32768 -1=32767
+
+It is also evenident from the screen shot attached.
+
+As well once the max process id is reached the counter will roll over the lowest available PID and will start again.
